@@ -6,11 +6,12 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.memory import ChatMessageHistory
 import pandas as pd
+import tempfile
 import fitz  # PyMuPDF
 
 ## PDF to text extraction function
-def extract_text_from_pdf(pdf_file):
-    doc = fitz.open(pdf_file)
+def extract_text_from_pdf(pdf_path):
+    doc = fitz.open(pdf_path)
     text = ""
     for page in doc:
         text += page.get_text()
@@ -168,8 +169,10 @@ if submit :
     cand2_score_5 = response.content    
 
     ## Candidate 3 PDF
-    # process PDFs
-    cand3 = extract_text_from_pdf(cand3_file)
+    # process PDF
+    temp_dir = tempfile.mkdtemp()
+    cand3_file_path = os.path.join(temp_dir, cand3_file.name)
+    cand3 = extract_text_from_pdf(cand3_file_path)
     
     recruit_chat_history.add_user_message(f'this is the profile of candidate 3: {cand3}. What is the name of this candidate? In your response, include his/her name only (no other words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
@@ -247,4 +250,5 @@ if submit :
     st.write("")      
     
 
+    
 
