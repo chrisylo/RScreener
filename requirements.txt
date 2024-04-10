@@ -2,3 +2,4 @@ openai
 langchain
 requests
 streamlit
+PyMuPDF
