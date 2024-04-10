@@ -20,7 +20,7 @@ def extract_text_from_pdf(pdf_path):
 client = openai.OpenAI(api_key=st.secrets["key"])
 
 # initiate chat
-chat = ChatOpenAI(model = "gpt-3.5-turbo-0125", api_key=key)
+chat = ChatOpenAI(model = "gpt-3.5-turbo-0125", api_key=st.secrets["key"])
 
 ## web form #############################################################################
 st.title("Demo")
