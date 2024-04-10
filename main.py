@@ -8,6 +8,7 @@ from langchain.memory import ChatMessageHistory
 import pandas as pd
 import tempfile
 import fitz  # PyMuPDF
+import os
 
 ## PDF to text extraction function
 def extract_text_from_pdf(pdf_path):
