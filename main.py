@@ -173,7 +173,7 @@ if submit :
     # process PDF
     #temp_dir = tempfile.mkdtemp()
     #cand3_file_path = os.path.join(temp_dir, cand3_file.name)
-    cand3 = extract_text_from_pdf(cand3_file_path)
+    cand3 = extract_text_from_pdf(cand3_file)
     
     recruit_chat_history.add_user_message(f'this is the profile of candidate 3: {cand3}. What is the name of this candidate? In your response, include his/her name only (no other words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
