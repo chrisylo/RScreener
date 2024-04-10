@@ -17,7 +17,7 @@ def extract_text_from_pdf(pdf_path):
     return text
 
 # API key
-client = openai.OpenAI(api_key=key)
+client = openai.OpenAI(api_key=st.secrets["key"])
 
 # initiate chat
 chat = ChatOpenAI(model = "gpt-3.5-turbo-0125", api_key=key)
