@@ -9,8 +9,8 @@ import pandas as pd
 import fitz  # PyMuPDF
 
 ## PDF to text extraction function
-def extract_text_from_pdf(pdf_path):
-    doc = fitz.open(pdf_path)
+def extract_text_from_pdf(pdf_file):
+    doc = fitz.open(pdf_file)
     text = ""
     for page in doc:
         text += page.get_text()
