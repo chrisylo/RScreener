@@ -172,6 +172,10 @@ if submit :
     ## Candidate 3 PDF
     # process PDF
     temp_dir = tempfile.mkdtemp(dir=os.getcwd())
+    save_path_cv = Path(temp_dir, can3_file.name)
+    with open(save_path_cv, mode='wb') as w:
+         w.write(can3_file.getvalue())
+    
     cand3_file_path = os.path.join(temp_dir, cand3_file.name)
     cand3 = extract_text_from_pdf(cand3_file_path)
     
