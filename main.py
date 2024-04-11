@@ -67,10 +67,19 @@ if submit :
         
     ## set up chain
     chain = prompt | chat
-       
-    ## start chat
+    recruit_chat_history = ChatMessageHistory()   
+    
+    ## detect language
+    recruit_chat_history.add_user_message(f'this is the job description: {job_desc}. What langugage is this written in?')
+    response = chain.invoke({"messages": recruit_chat_history.messages})
+    recruit_chat_history.add_ai_message(response)
+    lang_use = response.content
+
+    recruit_chat_history.add_user_message(f'In all your responses, please respond in {lang_use}')
+    response = chain.invoke({"messages": recruit_chat_history.messages})
+    recruit_chat_history.add_ai_message(response)
+        
     ## About the job
-    recruit_chat_history = ChatMessageHistory()
     recruit_chat_history.add_user_message(f'this is the job description: {job_desc}. Please response in Markdown the job title and a summary of the skills required for this job in numbered dot points and no more than 5 dot points, each point with the headline only?')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     st.markdown(response.content)
