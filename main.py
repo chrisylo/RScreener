@@ -76,34 +76,34 @@ if submit :
     lang_use = response.content
         
     ## About the job
-    recruit_chat_history.add_user_message(f'this is the job description: {job_desc}. Please response in Markdown the job title and a summary of the skills required for this job in numbered dot points and no more than 5 dot points, each point with the headline only?')
+    recruit_chat_history.add_user_message(f'this is the job description: {job_desc}. Please response in Markdown the job title and a summary of the skills required for this job in numbered dot points and no more than 5 dot points, each point with the headline only? Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     st.markdown(response.content)
     recruit_chat_history.add_ai_message(response)
     job_req = response.content
 
     # requirement list
-    recruit_chat_history.add_user_message('Can you give requirement 1 a name? In your response, provide only the name (and no other words or punctuation).')
+    recruit_chat_history.add_user_message(f'Can you give requirement 1 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     job_req_1 = response.content
 
-    recruit_chat_history.add_user_message('Can you give requirement 2 a name? In your response, provide only the name (and no other words or punctuation).')
+    recruit_chat_history.add_user_message(f'Can you give requirement 2 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     job_req_2 = response.content
 
-    recruit_chat_history.add_user_message('Can you give requirement 3 a name? In your response, provide only the name (and no other words or punctuation).')
+    recruit_chat_history.add_user_message(f'Can you give requirement 3 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     job_req_3 = response.content
 
-    recruit_chat_history.add_user_message('Can you give requirement 4 a name? In your response, provide only the name (and no other words or punctuation).')
+    recruit_chat_history.add_user_message(f'Can you give requirement 4 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     job_req_4 = response.content
 
-    recruit_chat_history.add_user_message('Can you give requirement 5 a name? In your response, provide only the name (and no other words or punctuation).')
+    recruit_chat_history.add_user_message(f'Can you give requirement 5 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     job_req_5 = response.content
@@ -117,7 +117,7 @@ if submit :
     recruit_chat_history.add_ai_message(response)
     cand1_name = response.content
     
-    recruit_chat_history.add_user_message('Base on this profile, please assess the suitability of this candidate against the job by the requirements you listed out. In your response, only include a short paragraph on your assessment.')
+    recruit_chat_history.add_user_message(f'Base on this profile, please assess the suitability of this candidate against the job by the requirements you listed out. In your response, only include a short paragraph on your assessment. Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand1_assessment = response.content
@@ -153,32 +153,32 @@ if submit :
     recruit_chat_history.add_ai_message(response)
     cand2_name = response.content
     
-    recruit_chat_history.add_user_message('Base on this profile, please assess the suitability of this candidate against the job by the requirements you listed out. In your response, only include a short paragraph on your assessment')
+    recruit_chat_history.add_user_message(f'Base on this profile, please assess the suitability of this candidate against the job by the requirements you listed out. In your response, only include a short paragraph on your assessment. Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand2_assessment = response.content
 
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 1? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 1? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand2_score_1 = response.content
  
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 2? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 2? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand2_score_2 = response.content
     
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 3? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 3? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand2_score_3 = response.content
     
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 4? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 4? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand2_score_4 = response.content
     
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 5? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 5? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand2_score_5 = response.content    
@@ -189,32 +189,32 @@ if submit :
     recruit_chat_history.add_ai_message(response)
     cand3_name = response.content
     
-    recruit_chat_history.add_user_message('Base on this profile, please assess the suitability of this candidate against the job by the requirements you listed out. In your response, only include a short paragraph on your assessment')
+    recruit_chat_history.add_user_message(f'Base on this profile, please assess the suitability of this candidate against the job by the requirements you listed out. In your response, only include a short paragraph on your assessment. Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand3_assessment = response.content
 
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 1? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 1? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand3_score_1 = response.content
  
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 2? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 2? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand3_score_2 = response.content
     
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 3? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 3? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand3_score_3 = response.content
     
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 4? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 4? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand3_score_4 = response.content
     
-    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 5? In your response, provide only the score (with no words or punctuation')
+    recruit_chat_history.add_user_message('in a scale of 10, how would you score the suitability of this candidate against requirement 5? In your response, provide only the score (with no words or punctuation)')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     cand3_score_5 = response.content    
@@ -230,7 +230,7 @@ if submit :
     scores_table = pd.DataFrame(scores)
     
     ## Compare
-    recruit_chat_history.add_user_message('who would you recommend for the job and why?')
+    recruit_chat_history.add_user_message(f'who would you recommend for the job and why? Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     #st.markdown(response.content)
     recruit_chat_history.add_ai_message(response)
