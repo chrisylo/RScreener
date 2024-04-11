@@ -86,6 +86,9 @@ if submit :
     recruit_chat_history.add_user_message(f'Can you give requirement 1 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
+    recruit_chat_history.add_user_message(f'Can you repeat your respond in {lang_use} please.')
+    response = chain.invoke({"messages": recruit_chat_history.messages})
+    recruit_chat_history.add_ai_message(response)
     job_req_1 = response.content
 
     recruit_chat_history.add_user_message(f'Can you give requirement 2 a name? In your response, provide only the name (and no other words or punctuation). Please respond in {lang_use}.')
