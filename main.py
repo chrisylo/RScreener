@@ -70,7 +70,7 @@ if submit :
     recruit_chat_history = ChatMessageHistory()   
     
     ## detect language
-    recruit_chat_history.add_user_message(f'this is the job description: {job_desc}. What langugage is this written in?')
+    recruit_chat_history.add_user_message('What langugage is this written in: {job_desc}?')
     response = chain.invoke({"messages": recruit_chat_history.messages})
     recruit_chat_history.add_ai_message(response)
     lang_use = response.content
