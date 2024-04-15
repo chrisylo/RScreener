@@ -73,7 +73,7 @@ if submit :
     #recruit_chat_history.add_user_message('What langugage is this written in: {job_desc}?')
     #response = chain.invoke({"messages": recruit_chat_history.messages})
     #recruit_chat_history.add_ai_message(response)
-    lang_use = "chinese"
+    lang_use = "english"
         
     ## About the job
     recruit_chat_history.add_user_message(f'this is the job description: {job_desc}. Please response in Markdown the job title and a summary of the skills required for this job in numbered dot points and no more than 5 dot points, each point with the headline only? Please respond in {lang_use}.')
