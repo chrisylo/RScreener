@@ -1,5 +1,5 @@
 openai
-langchain
+langchain[all]
 requests
 streamlit
 PyMuPDF
